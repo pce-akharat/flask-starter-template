@@ -9,3 +9,7 @@ python app.py
 ## On Mac/Linux:<br>
 export FLASK_APP=app.py<br>
 python app.py
+
+## To open the web app
+Go to browser and in the address bar type following
+http://locahost:5000/
