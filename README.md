@@ -11,5 +11,4 @@ export FLASK_APP=app.py<br>
 python app.py
 
 ## To open the web app
-Go to browser and in the address bar type following
-http://locahost:5000/
+Go to browser and in the address bar type http://locahost:5000/
