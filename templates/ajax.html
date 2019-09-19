@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block head %} 
+<title>{{title}}</title>
+{% endblock %}
+
+{% block main_content %} 
+<h2>XML/JSON Example (ISS Location)</h2>
+
+<p id="demo">ISS Location displayed here...</p>
+
+<button type="button" onclick="loadAPI()" class="btn btn-primary">Display</button>
+
+<script>
+function loadAPI() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var json_obj = JSON.parse(this.responseText);
+        var info = "Timestamp: " +  new Date(json_obj.timestamp*1000) + "<br>";
+        info = info + "Longitude: " +  json_obj.iss_position.longitude + "<br>";
+        info = info + "Latitude: " +  json_obj.iss_position.latitude;
+        document.getElementById("demo").innerHTML = info;
+    }
+  };
+  xhttp.open("GET", "http://api.open-notify.org/iss-now.json", true);
+  xhttp.send();
+}
+</script>
+{% endblock %}

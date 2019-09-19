@@ -7,6 +7,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html', title="Home")
 
+@app.route('/ajax')
+def ajax():
+    return render_template('ajax.html', title="Ajax Example")
+
 @app.route('/aboutus')
 def aboutus():
     return render_template('aboutus.html', title="About Us")
